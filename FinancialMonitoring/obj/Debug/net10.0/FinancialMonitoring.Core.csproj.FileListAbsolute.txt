@@ -1,0 +1,14 @@
+C:\Users\alexa\Desktop\.NET\SR1\FinancialMonitoring\bin\Debug\net10.0\FinancialMonitoring.Core.deps.json
+C:\Users\alexa\Desktop\.NET\SR1\FinancialMonitoring\bin\Debug\net10.0\FinancialMonitoring.Core.dll
+C:\Users\alexa\Desktop\.NET\SR1\FinancialMonitoring\bin\Debug\net10.0\FinancialMonitoring.Core.pdb
+C:\Users\alexa\Desktop\.NET\SR1\FinancialMonitoring\obj\Debug\net10.0\FinancialMonitoring.Core.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\alexa\Desktop\.NET\SR1\FinancialMonitoring\obj\Debug\net10.0\FinancialMonitoring.Core.AssemblyInfoInputs.cache
+C:\Users\alexa\Desktop\.NET\SR1\FinancialMonitoring\obj\Debug\net10.0\FinancialMonitoring.Core.AssemblyInfo.cs
+C:\Users\alexa\Desktop\.NET\SR1\FinancialMonitoring\obj\Debug\net10.0\FinancialMonitoring.Core.csproj.CoreCompileInputs.cache
+C:\Users\alexa\Desktop\.NET\SR1\FinancialMonitoring\obj\Debug\net10.0\FinancialMonitoring.Core.sourcelink.json
+C:\Users\alexa\Desktop\.NET\SR1\FinancialMonitoring\obj\Debug\net10.0\FinancialMonitoring.Core.dll
+C:\Users\alexa\Desktop\.NET\SR1\FinancialMonitoring\obj\Debug\net10.0\refint\FinancialMonitoring.Core.dll
+C:\Users\alexa\Desktop\.NET\SR1\FinancialMonitoring\obj\Debug\net10.0\FinancialMonitoring.Core.pdb
+C:\Users\alexa\Desktop\.NET\SR1\FinancialMonitoring\obj\Debug\net10.0\ref\FinancialMonitoring.Core.dll
+C:\Users\alexa\Desktop\.NET\SR1\FinancialMonitoring\obj\Debug\net10.0\Financia.CDD64EDC.Up2Date
+C:\Users\alexa\Desktop\.NET\SR1\FinancialMonitoring\obj\Debug\net10.0\FinancialMonitoring.Core.csproj.AssemblyReference.cache

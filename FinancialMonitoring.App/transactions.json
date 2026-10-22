@@ -1,0 +1,194 @@
+﻿[
+  {
+    "clientId": "CL-0912",
+    "taxCode": "3214567890",
+    "accounts": [
+      {
+        "iban": "UA82300001000002600123456789",
+        "currency": "UAH",
+        "transactions": [
+          {
+            "txId": "TX-11029",
+            "amount": 150000.0,
+            "timestamp": "2026-09-03T10:10:00Z",
+            "merchant": "CryptoExchange"
+          },
+          {
+            "txId": "TX-11030",
+            "amount": 20000.0,
+            "timestamp": "2026-09-03T11:10:00Z",
+            "merchant": "Shop"
+          },
+          {
+            "txId": "TX-11031",
+            "amount": 120000.0,
+            "timestamp": "2026-09-03T12:10:00Z",
+            "merchant": "CryptoExchange"
+          },
+          {
+            "txId": "TX-11032",
+            "amount": 500.0,
+            "timestamp": "2026-09-03T13:10:00Z",
+            "merchant": "Cafe"
+          }
+        ]
+      },
+      {
+        "iban": "UA82300001000002600123456790",
+        "currency": "USD",
+        "transactions": [
+          {
+            "txId": "TX-11033",
+            "amount": 3000.0,
+            "timestamp": "2026-09-03T10:15:00Z",
+            "merchant": "CryptoExchange"
+          },
+          {
+            "txId": "TX-11034",
+            "amount": 1200.0,
+            "timestamp": "2026-09-03T11:15:00Z",
+            "merchant": "OnlineStore"
+          },
+          {
+            "txId": "TX-11035",
+            "amount": 800.0,
+            "timestamp": "2026-09-03T12:15:00Z",
+            "merchant": "TravelAgency"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "clientId": "CL-1045",
+    "taxCode": "2987654321",
+    "accounts": [
+      {
+        "iban": "UA11300001000002600123456791",
+        "currency": "UAH",
+        "transactions": [
+          {
+            "txId": "TX-11036",
+            "amount": 4500.0,
+            "timestamp": "2026-09-05T10:10:00Z",
+            "merchant": "Supermarket"
+          },
+          {
+            "txId": "TX-11037",
+            "amount": 2500.0,
+            "timestamp": "2026-09-05T11:10:00Z",
+            "merchant": "Pharmacy"
+          },
+          {
+            "txId": "TX-11038",
+            "amount": 110000.0,
+            "timestamp": "2026-09-05T12:10:00Z",
+            "merchant": "CarDealer"
+          },
+          {
+            "txId": "TX-11039",
+            "amount": 1000.0,
+            "timestamp": "2026-09-05T13:10:00Z",
+            "merchant": "Cafe"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "clientId": "CL-2078",
+    "taxCode": "3011223344",
+    "accounts": [
+      {
+        "iban": "UA22300001000002600123456792",
+        "currency": "UAH",
+        "transactions": [
+          {
+            "txId": "TX-11040",
+            "amount": 95000.0,
+            "timestamp": "2026-09-07T10:10:00Z",
+            "merchant": "Electronics"
+          },
+          {
+            "txId": "TX-11041",
+            "amount": 105000.0,
+            "timestamp": "2026-09-07T11:10:00Z",
+            "merchant": "CryptoExchange"
+          },
+          {
+            "txId": "TX-11042",
+            "amount": 35000.0,
+            "timestamp": "2026-09-07T12:10:00Z",
+            "merchant": "Electronics"
+          }
+        ]
+      },
+      {
+        "iban": "UA22300001000002600123456793",
+        "currency": "EUR",
+        "transactions": [
+          {
+            "txId": "TX-11043",
+            "amount": 700.0,
+            "timestamp": "2026-09-07T10:15:00Z",
+            "merchant": "Hotel"
+          },
+          {
+            "txId": "TX-11044",
+            "amount": 2500.0,
+            "timestamp": "2026-09-07T11:15:00Z",
+            "merchant": "TravelAgency"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "clientId": "CL-3189",
+    "taxCode": "3122334455",
+    "accounts": [
+      {
+        "iban": "UA33300001000002600123456794",
+        "currency": "UAH",
+        "transactions": [
+          {
+            "txId": "TX-11045",
+            "amount": 300.0,
+            "timestamp": "2026-09-09T10:10:00Z",
+            "merchant": "Cafe"
+          },
+          {
+            "txId": "TX-11046",
+            "amount": 1800.0,
+            "timestamp": "2026-09-09T11:10:00Z",
+            "merchant": "Supermarket"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "clientId": "CL-4250",
+    "taxCode": "3233445566",
+    "accounts": [
+      {
+        "iban": "UA44300001000002600123456795",
+        "currency": "USD",
+        "transactions": [
+          {
+            "txId": "TX-11047",
+            "amount": 12500.0,
+            "timestamp": "2026-09-11T10:10:00Z",
+            "merchant": "CryptoExchange"
+          },
+          {
+            "txId": "TX-11048",
+            "amount": 900.0,
+            "timestamp": "2026-09-11T11:10:00Z",
+            "merchant": "OnlineStore"
+          }
+        ]
+      }
+    ]
+  }
+]

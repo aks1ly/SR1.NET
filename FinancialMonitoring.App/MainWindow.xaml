@@ -1,0 +1,364 @@
+﻿<Window x:Class="FinancialMonitoring.App.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="FINMONITOR"
+        Height="900"
+        Width="1250"
+        MinHeight="700"
+        MinWidth="950"
+        WindowStartupLocation="CenterScreen"
+        Background="#F5F5F5"
+        FontFamily="Cascadia Code">
+
+    <Window.Resources>
+
+        <!-- Основний стиль кнопок -->
+        <Style TargetType="Button">
+            <Setter Property="Background" Value="#191919"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Padding" Value="18,12"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Margin" Value="0,0,10,10"/>
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="ButtonBorder"
+                                Background="{TemplateBinding Background}"
+                                CornerRadius="8"
+                                Padding="{TemplateBinding Padding}">
+                            <ContentPresenter
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="ButtonBorder"
+                                        Property="Opacity" Value="0.85"/>
+                            </Trigger>
+
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter TargetName="ButtonBorder"
+                                        Property="Opacity" Value="0.45"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <!-- Стиль таблиці -->
+        <Style TargetType="DataGrid">
+            <Setter Property="AutoGenerateColumns" Value="True"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="CanUserAddRows" Value="False"/>
+            <Setter Property="CanUserResizeColumns" Value="True"/>
+            <Setter Property="GridLinesVisibility" Value="Horizontal"/>
+            <Setter Property="HeadersVisibility" Value="Column"/>
+            <Setter Property="RowHeight" Value="43"/>
+            <Setter Property="ColumnHeaderHeight" Value="45"/>
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="HorizontalGridLinesBrush" Value="#EEEEEE"/>
+            <Setter Property="RowBackground" Value="White"/>
+            <Setter Property="AlternatingRowBackground" Value="#FAFAFA"/>
+            <Setter Property="AlternationCount" Value="2"/>
+            <Setter Property="SelectionMode" Value="Single"/>
+            <Setter Property="SelectionUnit" Value="FullRow"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility"
+                    Value="Auto"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility"
+                    Value="Auto"/>
+        </Style>
+
+        <Style TargetType="DataGridColumnHeader">
+            <Setter Property="Background" Value="#F0F0F0"/>
+            <Setter Property="Foreground" Value="#191919"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Padding" Value="10,8"/>
+            <Setter Property="BorderBrush" Value="#E5E5E5"/>
+            <Setter Property="BorderThickness" Value="0,0,1,1"/>
+        </Style>
+
+        <Style TargetType="DataGridCell">
+            <Setter Property="Padding" Value="8,5"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Foreground" Value="#191919"/>
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="#FCE7EA"/>
+                    <Setter Property="Foreground" Value="#191919"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="DataGridRow">
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="#FFE5E8"/>
+                    <Setter Property="Foreground" Value="#191919"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+    </Window.Resources>
+
+    <!-- Прокручується лише верхня частина,
+         таблиця має окрему прокрутку -->
+    <Grid Margin="28,20,28,20">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" MinHeight="280"/>
+        </Grid.RowDefinitions>
+
+        <!-- Заголовок -->
+        <StackPanel Grid.Row="0" Margin="0,0,0,18">
+
+            <TextBlock FontSize="28"
+                       FontWeight="Bold">
+                <Run Text="FINMONITOR"/>
+            </TextBlock>
+
+            <TextBlock
+                Text="ФІНАНСОВИЙ МОНІТОРИНГ БАНКІВСЬКИХ ТРАНЗАКЦІЙ"
+                FontSize="10"
+                Foreground="#777777"
+                Margin="0,5,0,0"/>
+        </StackPanel>
+
+        <!-- Імпорт -->
+        <Border Grid.Row="1"
+                Background="White"
+                CornerRadius="12"
+                Padding="20"
+                Margin="0,0,0,15">
+
+            <StackPanel>
+
+                <TextBlock Text="Імпорт даних"
+                           FontSize="17"
+                           FontWeight="Bold"
+                           Margin="0,0,0,12"/>
+
+                <WrapPanel>
+
+                    <Button x:Name="BtnSelectJson"
+                            Content="Вибрати JSON"
+                            Background="#D62839"
+                            Click="BtnSelectJson_Click"/>
+
+                    <Button x:Name="BtnImport"
+                            Content="Імпортувати в БД"
+                            Click="BtnImport_Click"/>
+
+
+                    <ComboBox x:Name="CmbImportMode"
+                              Width="190"
+                              Height="37"
+                              Margin="0,-8,12,0"
+                              Padding="12,0,8,0"
+                              SelectedIndex="0"
+                              VerticalAlignment="Center"
+                              VerticalContentAlignment="Center"
+                              FontFamily="Cascadia Code"
+                              FontSize="12"
+                              FontWeight="SemiBold">
+                        <ComboBoxItem Content="Додати до бази"/>
+                        <ComboBoxItem Content="Замінити дані"/>
+                    </ComboBox>
+
+
+
+                    <Button x:Name="BtnShowAll"
+                            Content="Показати всі транзакції"
+                            Click="BtnShowAll_Click"/>
+
+                </WrapPanel>
+
+                <TextBlock x:Name="TxtFilePath"
+                           Text="Файл не вибрано"
+                           FontSize="10"
+                           Foreground="#777777"
+                           TextWrapping="Wrap"
+                           Margin="0,3,0,0"/>
+
+                <TextBlock x:Name="TxtStatus"
+                           Text="Оберіть JSON-файл для імпорту або перегляньте дані з бази"
+                           FontSize="10"
+                           Foreground="#D62839"
+                           Margin="0,6,0,0"/>
+
+            </StackPanel>
+        </Border>
+
+        <!-- Лічильники -->
+        <UniformGrid Grid.Row="2"
+                     Columns="3"
+                     Margin="0,0,0,15">
+
+            <Border Background="White"
+                    CornerRadius="12"
+                    Padding="18"
+                    Margin="0,0,10,0">
+                <StackPanel>
+                    <TextBlock x:Name="TxtClients"
+                               Text="0"
+                               FontSize="26"
+                               FontWeight="Bold"
+                               Foreground="#D62839"/>
+                    <TextBlock Text="КЛІЄНТІВ" FontSize="10"/>
+                </StackPanel>
+            </Border>
+
+            <Border Background="White"
+                    CornerRadius="12"
+                    Padding="18"
+                    Margin="0,0,10,0">
+                <StackPanel>
+                    <TextBlock x:Name="TxtAccounts"
+                               Text="0"
+                               FontSize="26"
+                               FontWeight="Bold"
+                               Foreground="#D62839"/>
+                    <TextBlock Text="РАХУНКІВ" FontSize="10"/>
+                </StackPanel>
+            </Border>
+
+            <Border Background="White"
+                    CornerRadius="12"
+                    Padding="18">
+                <StackPanel>
+                    <TextBlock x:Name="TxtTransactions"
+                               Text="0"
+                               FontSize="26"
+                               FontWeight="Bold"
+                               Foreground="#D62839"/>
+                    <TextBlock Text="ТРАНЗАКЦІЙ" FontSize="10"/>
+                </StackPanel>
+            </Border>
+        </UniformGrid>
+
+        <!-- Аналітика -->
+        <Border Grid.Row="3"
+                Background="White"
+                CornerRadius="12"
+                Padding="20"
+                Margin="0,0,0,15">
+
+            <StackPanel>
+
+                <TextBlock Text="Аналітика транзакцій"
+                           FontSize="17"
+                           FontWeight="Bold"
+                           Margin="0,0,0,12"/>
+
+                <WrapPanel>
+
+                    <Button x:Name="BtnLarge"
+                            Content="Великі транзакції"
+                            Click="BtnLarge_Click"/>
+
+                    <Button x:Name="BtnMerchants"
+                            Content="Серійні операції"
+                            Click="BtnMerchants_Click"/>
+
+                    <Button x:Name="BtnSuspicious"
+                            Content="Дроблення сум"
+                            Click="BtnSuspicious_Click"/>
+
+                    <Button x:Name="BtnStatistics"
+                            Content="Загальна статистика"
+                            Click="BtnStatistics_Click"/>
+
+                </WrapPanel>
+
+                <!-- Параметри відображаються лише для аналізів з порогом -->
+                <StackPanel x:Name="ParametersPanel"
+                            Visibility="Collapsed"
+                            Margin="0,5,0,0">
+
+                    <TextBlock
+                        Text="Параметри перевірки (великі транзакції / дроблення сум)"
+                        FontSize="11"
+                        FontWeight="SemiBold"
+                        Margin="0,0,0,8"/>
+
+                    <StackPanel Orientation="Horizontal">
+
+                        <TextBlock Text="Поріг:"
+                                   VerticalAlignment="Center"
+                                   FontSize="11"
+                                   Margin="0,0,10,0"/>
+
+                        <TextBox x:Name="TxtThreshold"
+                                 Text="100000"
+                                 Width="140"
+                                 Height="34"
+                                 Padding="8"
+                                 FontSize="12"
+                                 VerticalContentAlignment="Center"
+                                 Margin="0,0,10,0"/>
+
+                        <ComboBox x:Name="CmbCurrency"
+                                  Width="100"
+                                  Height="34"
+                                  SelectedIndex="0">
+                            <ComboBoxItem Content="UAH"/>
+                            <ComboBoxItem Content="USD"/>
+                            <ComboBoxItem Content="EUR"/>
+                        </ComboBox>
+
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <!-- Таблиця -->
+        <Border Grid.Row="4"
+                Background="White"
+                CornerRadius="12"
+                Padding="20">
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock x:Name="TxtTableTitle"
+                           Grid.Row="0"
+                           Text="Результати аналізу"
+                           FontSize="17"
+                           FontWeight="Bold"
+                           Margin="0,0,0,15"/>
+
+                <DataGrid x:Name="ResultsGrid"
+                          Grid.Row="1"
+                          AutoGenerateColumns="True"
+                          AutoGeneratingColumn="ResultsGrid_AutoGeneratingColumn"
+                          ColumnWidth="SizeToHeader"
+                          MinColumnWidth="75"
+                          CanUserSortColumns="True"
+                          CanUserReorderColumns="True"
+                          CanUserResizeColumns="True"
+                          EnableRowVirtualization="True"
+                          EnableColumnVirtualization="True"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Stretch"
+                          ScrollViewer.VerticalScrollBarVisibility="Auto"
+                          ScrollViewer.HorizontalScrollBarVisibility="Auto"
+                          ScrollViewer.CanContentScroll="True"/>
+            </Grid>
+        </Border>
+
+    </Grid>
+</Window>
